@@ -230,6 +230,20 @@
   }
   .pill:hover{border-color:var(--green);color:#fff;}
 
+  /* RECOGNITION */
+  #recognition{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .recog-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+  .recog-col h3{font-size:1rem;color:var(--blue);margin-bottom:18px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+  .recog-item{
+    border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:var(--panel);
+    margin-bottom:12px;
+  }
+  .recog-item h4{font-size:.92rem;color:#fff;margin-bottom:4px;line-height:1.35;}
+  .recog-item span{font-size:.76rem;color:var(--text-2);font-family:'IBM Plex Mono',monospace;}
+  @media(max-width:920px){
+    .recog-grid{grid-template-columns:1fr;}
+  }
+
   /* CONTACT */
   #contact{background:var(--bg-1);border-top:1px solid var(--line);}
   .contact-wrap{
@@ -262,8 +276,20 @@
     .monogram b{font-size:2.2rem;}
     .about-grid, .skills-grid, .contact-wrap{grid-template-columns:1fr;}
     .proj-grid{grid-template-columns:1fr 1fr;}
-    .navlinks{display:none;}
+    .navlinks{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:rgba(10,15,28,0.98);
+      border-bottom:1px solid var(--line);padding:8px 0;
+    }
+    .navlinks.mobile-open{display:flex;}
+    .navlinks a{padding:14px 32px;width:100%;}
+    .navlinks a::after{display:none;}
+    .navlinks a:hover{background:var(--panel);}
     .burger{display:flex;}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .burger.open span:nth-child(2){opacity:0;}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .burger span{transition:transform .2s, opacity .2s;}
     .hero h1{font-size:2.2rem;}
   }
   @media(max-width:560px){
@@ -286,7 +312,7 @@
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="navbtn">Get in touch</a>
-    <button class="burger" onclick="document.querySelector('.navlinks').classList.toggle('mobile-open')"><span></span><span></span><span></span></button>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
@@ -300,7 +326,7 @@
       <div class="role">Dy. Manager — Project Operations &amp; Maintenance, Akij Mediplex</div>
       <p class="lede">A decade spent keeping hospitals, diagnostic centers, and critical infrastructure running — from Matarbari's power plant site to 300‑bed hospital handovers. I plan the build, then keep it operating.</p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="Alex_Ruben_Bayen_CV.md" download>↓ Download CV</a>
+        <a class="btn-primary" href="Alex_Ruben_Bayen_CV.pdf" download>↓ Download CV</a>
         <div class="social-row">
           <a href="https://linkedin.com/in/alex-ruben-bayen-96a4a7107" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
@@ -315,7 +341,7 @@
       </div>
       <div class="stats-row">
         <div class="stat"><b>10+</b><span>Years experience</span></div>
-        <div class="stat"><b>15+</b><span>Projects delivered</span></div>
+        <div class="stat"><b>23+</b><span>Projects delivered</span></div>
         <div class="stat"><b>300+</b><span>Bed hospital led</span></div>
         <div class="stat"><b>IEB</b><span>Member M/39792</span></div>
       </div>
@@ -463,27 +489,27 @@
         </div>
       </div>
       <div class="proj-card reveal">
-        <span class="tag">Utility</span>
-        <h4>Substation &amp; HVAC Chiller Building</h4>
+        <span class="tag">Diagnostics</span>
+        <h4>Diagnostics &amp; Consultation Center, Kamrangirchor</h4>
         <div class="proj-meta">
-          <div><b>3</b><span>Floors</span></div>
-          <div><b>6,500</b><span>Sq. ft</span></div>
+          <div><b>5</b><span>Floors</span></div>
+          <div><b>19,000</b><span>Sq. ft</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
-        <span class="tag">Environmental</span>
-        <h4>Effluent &amp; Sewerage Treatment Plants</h4>
+        <span class="tag">Diagnostics</span>
+        <h4>Diagnostics &amp; Consultation Center, Cox's Bazar</h4>
         <div class="proj-meta">
-          <div><b>Turnkey</b><span>Delivery</span></div>
-          <div><b>8,000</b><span>Sq. ft combined</span></div>
+          <div><b>5</b><span>Floors</span></div>
+          <div><b>14,700</b><span>Sq. ft</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
-        <span class="tag">Power</span>
-        <h4>Matarbari 600×2 MW Power Plant — Township</h4>
+        <span class="tag">Diagnostics</span>
+        <h4>Diagnostics &amp; Consultation Center, Chattogram</h4>
         <div class="proj-meta">
-          <div><b>Multiple</b><span>Buildings</span></div>
-          <div><b>55,000</b><span>Sq. ft</span></div>
+          <div><b>2</b><span>Floors</span></div>
+          <div><b>12,000</b><span>Sq. ft</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
@@ -495,11 +521,115 @@
         </div>
       </div>
       <div class="proj-card reveal">
+        <span class="tag">Hospital</span>
+        <h4>Accommodation Building, Divine Mercy Hospital</h4>
+        <div class="proj-meta">
+          <div><b>7</b><span>Floors</span></div>
+          <div><b>25,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Utility</span>
+        <h4>Substation &amp; HVAC Chiller Building</h4>
+        <div class="proj-meta">
+          <div><b>3</b><span>Floors</span></div>
+          <div><b>6,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Utility</span>
+        <h4>Laundry Building, Divine Mercy Hospital</h4>
+        <div class="proj-meta">
+          <div><b>3</b><span>Floors</span></div>
+          <div><b>3,600</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Environmental</span>
+        <h4>Effluent &amp; Sewerage Treatment Plants</h4>
+        <div class="proj-meta">
+          <div><b>Turnkey</b><span>Delivery</span></div>
+          <div><b>8,000</b><span>Sq. ft combined</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Land</span>
+        <h4>Land Development &amp; Retaining Boundary</h4>
+        <div class="proj-meta">
+          <div><b>11</b><span>Acres</span></div>
+          <div><b>Divine Mercy</b><span>Hospital</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Power</span>
+        <h4>Matarbari 600×2 MW Power Plant — Township</h4>
+        <div class="proj-meta">
+          <div><b>Multiple</b><span>Buildings</span></div>
+          <div><b>55,000</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Power</span>
+        <h4>Consultants' Accommodation Building (CAB)</h4>
+        <div class="proj-meta">
+          <div><b>3</b><span>Floors</span></div>
+          <div><b>17,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Power</span>
+        <h4>Employees' Accommodation Building (EAB)</h4>
+        <div class="proj-meta">
+          <div><b>3</b><span>Floors</span></div>
+          <div><b>15,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Power</span>
+        <h4>New Office Building (NOB), Matarbari</h4>
+        <div class="proj-meta">
+          <div><b>5</b><span>Floors</span></div>
+          <div><b>14,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Power</span>
+        <h4>Watch Towers, Matarbari Power Plant</h4>
+        <div class="proj-meta">
+          <div><b>10×2</b><span>Storied</span></div>
+          <div><b>38,000</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
         <span class="tag">Community</span>
         <h4>Community Center &amp; Guest House, Bandura</h4>
         <div class="proj-meta">
           <div><b>5</b><span>Floors</span></div>
           <div><b>12,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Residential</span>
+        <h4>Residential cum Commercial Building, Dhaka</h4>
+        <div class="proj-meta">
+          <div><b>7</b><span>Floors</span></div>
+          <div><b>11,200</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Resort</span>
+        <h4>Resort &amp; Training Center, Mothbari</h4>
+        <div class="proj-meta">
+          <div><b>2.5</b><span>Acres</span></div>
+          <div><b>Christian</b><span>Co‑op Union</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Retail</span>
+        <h4>Super Shop &amp; Community Center, Savar</h4>
+        <div class="proj-meta">
+          <div><b>1</b><span>Floor</span></div>
+          <div><b>7,500</b><span>Sq. ft</span></div>
         </div>
       </div>
     </div>
@@ -542,6 +672,35 @@
   </div>
 </section>
 
+<section id="recognition">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Recognition</div>
+      <h2>Certifications, awards &amp; leadership beyond the site</h2>
+    </div>
+    <div class="recog-grid">
+      <div class="recog-col reveal">
+        <h3>Certifications</h3>
+        <div class="recog-item"><h4>Project Cycle Management</h4><span>bdjobs.com</span></div>
+        <div class="recog-item"><h4>Fire Drill Training</h4><span>Dept. of Fire Services &amp; Civil Defense</span></div>
+        <div class="recog-item"><h4>Public Procurement Rules &amp; Acts</h4><span>Dhaka Credit Limited</span></div>
+        <div class="recog-item"><h4>Customized VAT &amp; AIT</h4><span>bdjobs.com</span></div>
+      </div>
+      <div class="recog-col reveal">
+        <h3>Awards &amp; Scholarships</h3>
+        <div class="recog-item"><h4>Best Employee Award</h4><span>Christian Co‑op Credit Union · 2017</span></div>
+        <div class="recog-item"><h4>Lifetime Membership Award</h4><span>Environmental Club of UAP · 2014</span></div>
+        <div class="recog-item"><h4>100% Attendance Award</h4><span>Notre Dame College · 2010</span></div>
+      </div>
+      <div class="recog-col reveal">
+        <h3>Volunteering &amp; Leadership</h3>
+        <div class="recog-item"><h4>Camp Leader</h4><span>Bible Student Fellowship BD · 2016–2020</span></div>
+        <div class="recog-item"><h4>Youth Leader</h4><span>Yokes Bangladesh · 2018–2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container contact-wrap">
     <div class="reveal">
@@ -556,7 +715,7 @@
       </div>
       <div class="contact-row">
         <div class="ic">📞</div>
-        <div><small>Phone</small><a href="tel:+8801720601480">+880 1720 601 480</a></div>
+        <div><small>Phone</small><a href="tel:+8801720601480">+880 1720 601 480</a> · <a href="tel:+8801670347415">+880 1670 347 415</a></div>
       </div>
       <div class="contact-row">
         <div class="ic">💼</div>
@@ -580,6 +739,21 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); } });
   },{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  const burgerBtn = document.getElementById('burgerBtn');
+  const navLinks = document.querySelector('.navlinks');
+  burgerBtn.addEventListener('click', ()=>{
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    burgerBtn.classList.toggle('open', isOpen);
+    burgerBtn.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click', ()=>{
+      navLinks.classList.remove('mobile-open');
+      burgerBtn.classList.remove('open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>
 </body>
 </html>
