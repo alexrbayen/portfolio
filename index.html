@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Ruben Bayen — Civil Engineer &amp; Facility Operations</title>
+<meta name="description" content="Alex Ruben Bayen — Civil Engineer specializing in healthcare infrastructure, project management, and facility operations & maintenance in Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0A0F1C;
+    --bg-1:#0F1830;
+    --panel:#131E38;
+    --line:rgba(148,168,204,0.14);
+    --text-0:#EDEFF5;
+    --text-1:#9AA7C2;
+    --text-2:#657196;
+    --blue:#4FA3F7;
+    --blue-dim:rgba(79,163,247,0.16);
+    --amber:#F0A93E;
+    --green:#3FD68C;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-0);
+    color:var(--text-0);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--blue-dim);color:#fff;}
+
+  /* blueprint grid backdrop */
+  .grid-bg{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 90%);
+    pointer-events:none;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--blue);
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--blue);display:inline-block;}
+
+  .container{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(10,15,28,0.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:1180px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.02rem;}
+  .brand .mark{
+    width:30px;height:30px;border:1.5px solid var(--blue);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--blue);
+    transform:rotate(0deg);
+  }
+  .navlinks{display:flex;gap:34px;font-size:.92rem;color:var(--text-1);}
+  .navlinks a{position:relative;padding:4px 0;transition:color .2s;}
+  .navlinks a:hover{color:var(--text-0);}
+  .navlinks a::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--blue);
+    transition:width .25s;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navbtn{
+    font-size:.85rem;padding:9px 18px;border:1px solid var(--line);border-radius:8px;
+    color:var(--text-0);white-space:nowrap;transition:.2s;
+  }
+  .navbtn:hover{border-color:var(--blue);color:var(--blue);}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .burger span{width:22px;height:2px;background:var(--text-0);}
+
+  /* HERO */
+  .hero{
+    position:relative;padding:170px 0 110px;
+    background:radial-gradient(1100px 620px at 78% 12%, rgba(79,163,247,0.14), transparent 60%),
+               linear-gradient(180deg,var(--bg-0), var(--bg-1));
+    overflow:hidden;
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+    color:var(--green);border:1px solid rgba(63,214,140,0.35);background:rgba(63,214,140,0.08);
+    padding:6px 12px;border-radius:99px;margin-bottom:22px;text-transform:uppercase;
+  }
+  .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+  .hero h1{font-size:3.1rem;line-height:1.08;color:#fff;margin-bottom:14px;}
+  .hero h1 span{color:var(--blue);}
+  .hero .role{font-size:1.25rem;color:var(--text-1);font-weight:500;margin-bottom:22px;font-family:'Space Grotesk',sans-serif;}
+  .hero p.lede{color:var(--text-1);max-width:520px;margin-bottom:34px;font-size:1rem;}
+  .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:30px;}
+  .btn-primary{
+    background:var(--blue);color:#04121F;font-weight:600;padding:13px 26px;border-radius:9px;
+    font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:.2s;
+  }
+  .btn-primary:hover{background:#6bb5f9;transform:translateY(-1px);}
+  .social-row{display:flex;gap:12px;}
+  .social-row a{
+    width:40px;height:40px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--text-1);
+    transition:.2s;
+  }
+  .social-row a:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+  .social-row svg{width:16px;height:16px;}
+
+  .stats-row{display:flex;gap:34px;margin-top:36px;flex-wrap:wrap;}
+  .stat b{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;color:#fff;display:block;}
+  .stat span{font-size:.78rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;}
+
+  /* portrait */
+  .portrait-wrap{position:relative;display:flex;justify-content:flex-end;align-items:center;padding-right:10px;}
+  .ring{
+    width:340px;height:340px;border-radius:50%;position:relative;
+    background:conic-gradient(from 180deg, var(--blue), var(--green), var(--amber), var(--blue));
+    padding:3px;
+    animation:spin 16s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .ring-inner{
+    width:100%;height:100%;border-radius:50%;background:var(--bg-1);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .monogram{
+    width:308px;height:308px;border-radius:50%;
+    background:linear-gradient(160deg,#16233f,#0c1426);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    border:1px solid var(--line);
+    animation:counterspin 16s linear infinite;
+    overflow:hidden;
+  }
+  @keyframes counterspin{to{transform:rotate(-360deg);}}
+  .monogram b{font-family:'Space Grotesk',sans-serif;font-size:3.4rem;color:#fff;letter-spacing:.02em;}
+  .monogram span{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--blue);letter-spacing:.18em;margin-top:6px;text-transform:uppercase;}
+  .monogram img{
+    width:100%;height:100%;object-fit:cover;border-radius:50%;
+    filter:grayscale(10%) contrast(1.05);
+  }
+  .badge{
+    position:absolute;bottom:8px;right:6px;background:var(--panel);border:1px solid var(--line);
+    padding:9px 14px;border-radius:10px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+    display:flex;align-items:center;gap:8px;color:var(--text-1);
+  }
+  .badge b{color:var(--green);}
+
+  /* SECTION shared */
+  section{padding:100px 0;position:relative;}
+  .section-head{margin-bottom:52px;max-width:640px;}
+  .section-head h2{font-size:2.1rem;color:#fff;margin-top:12px;}
+  .section-head p{color:var(--text-1);margin-top:12px;}
+
+  /* ABOUT */
+  #about{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .about-grid p{color:var(--text-1);margin-bottom:16px;}
+  .credentials{display:flex;flex-direction:column;gap:18px;}
+  .cred{
+    display:flex;gap:16px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--panel);
+  }
+  .cred .ic{
+    width:38px;height:38px;flex:none;border-radius:8px;background:var(--blue-dim);
+    display:flex;align-items:center;justify-content:center;color:var(--blue);
+  }
+  .cred h4{font-size:.95rem;color:#fff;margin-bottom:3px;}
+  .cred p{font-size:.85rem;color:var(--text-2);margin:0;}
+
+  /* EXPERIENCE timeline */
+  .timeline{border-left:1px solid var(--line);margin-left:8px;padding-left:36px;display:flex;flex-direction:column;gap:44px;}
+  .t-item{position:relative;}
+  .t-item::before{
+    content:"";position:absolute;left:-42px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg-0);border:2px solid var(--blue);
+  }
+  .t-item .t-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--blue);letter-spacing:.06em;margin-bottom:6px;display:block;}
+  .t-item h3{font-size:1.15rem;color:#fff;}
+  .t-item .t-org{color:var(--text-1);font-size:.92rem;margin-bottom:10px;}
+  .t-item ul{color:var(--text-2);font-size:.9rem;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
+
+  /* PORTFOLIO / PROJECTS */
+  #portfolio{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .proj-filter{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--text-2);margin-bottom:28px;letter-spacing:.05em;text-transform:uppercase;}
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .proj-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--panel);
+    transition:.25s;position:relative;overflow:hidden;
+  }
+  .proj-card:hover{border-color:var(--blue);transform:translateY(-3px);}
+  .proj-card .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;}
+  .proj-card h4{font-size:1.02rem;color:#fff;margin:10px 0 14px;line-height:1.35;}
+  .proj-meta{display:flex;gap:18px;border-top:1px solid var(--line);padding-top:14px;}
+  .proj-meta div b{display:block;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:1rem;}
+  .proj-meta div span{font-size:.7rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .skill-col h3{font-size:1rem;color:var(--blue);margin-bottom:18px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:9px;}
+  .pill{
+    font-size:.82rem;color:var(--text-1);border:1px solid var(--line);padding:8px 14px;border-radius:99px;
+    transition:.2s;background:var(--panel);
+  }
+  .pill:hover{border-color:var(--green);color:#fff;}
+
+  /* CONTACT */
+  #contact{background:var(--bg-1);border-top:1px solid var(--line);}
+  .contact-wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+  }
+  .contact-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:34px;background:var(--panel);
+  }
+  .contact-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-row .ic{
+    width:36px;height:36px;border-radius:8px;background:var(--blue-dim);color:var(--blue);
+    display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .contact-row a, .contact-row span{font-size:.92rem;color:var(--text-0);}
+  .contact-row small{display:block;color:var(--text-2);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+
+  footer{
+    border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--text-2);font-size:.82rem;
+  }
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.show{opacity:1;transform:none;}
+
+  @media(max-width:920px){
+    .hero-inner{grid-template-columns:1fr;}
+    .portrait-wrap{order:-1;margin-bottom:20px;justify-content:center;padding-right:0;}
+    .ring{width:220px;height:220px;}
+    .monogram{width:198px;height:198px;}
+    .monogram b{font-size:2.2rem;}
+    .about-grid, .skills-grid, .contact-wrap{grid-template-columns:1fr;}
+    .proj-grid{grid-template-columns:1fr 1fr;}
+    .navlinks{display:none;}
+    .burger{display:flex;}
+    .hero h1{font-size:2.2rem;}
+  }
+  @media(max-width:560px){
+    .proj-grid{grid-template-columns:1fr;}
+    .stats-row{gap:22px;}
+    .container{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand"><span class="mark">AB</span> Alex R. Bayen</div>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="navbtn">Get in touch</a>
+    <button class="burger" onclick="document.querySelector('.navlinks').classList.toggle('mobile-open')"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="grid-bg"></div>
+  <div class="container hero-inner">
+    <div class="reveal show">
+      <div class="hero-tag"><span class="dot"></span>Open to new infrastructure & FM projects</div>
+      <div class="eyebrow">Dhaka, Bangladesh</div>
+      <h1>Alex Ruben Bayen<br><span>Civil Engineer</span> &amp; Facility Ops Lead</h1>
+      <div class="role">Dy. Manager — Project Operations &amp; Maintenance, Akij Mediplex</div>
+      <p class="lede">A decade spent keeping hospitals, diagnostic centers, and critical infrastructure running — from Matarbari's power plant site to 300‑bed hospital handovers. I plan the build, then keep it operating.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="Alex_Ruben_Bayen_CV.md" download>↓ Download CV</a>
+        <div class="social-row">
+          <a href="https://linkedin.com/in/alex-ruben-bayen-96a4a7107" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <a href="mailto:engr.arbayen@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6l9 7 9-7"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+          </a>
+          <a href="tel:+8801720601480" aria-label="Phone">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><b>10+</b><span>Years experience</span></div>
+        <div class="stat"><b>15+</b><span>Projects delivered</span></div>
+        <div class="stat"><b>300+</b><span>Bed hospital led</span></div>
+        <div class="stat"><b>IEB</b><span>Member M/39792</span></div>
+      </div>
+    </div>
+    <div class="portrait-wrap reveal show">
+      <div class="ring"><div class="ring-inner">
+        <div class="monogram"><img src="portrait.webp" alt="Alex Ruben Bayen"></div>
+      </div></div>
+      <div class="badge">📍 <b>Tejgaon</b>, Dhaka</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow">About</div>
+        <h2>Built for the long run, not just the ribbon‑cutting</h2>
+        <p>With a decade of experience in project management and engineering, I'm proficient in overseeing facility operations, infrastructure development, and technical integration — with a particular focus on healthcare environments where downtime isn't an option.</p>
+        <p>My work spans project planning and execution, regulatory compliance, team leadership, and optimizing maintenance processes across MEP systems, biomedical equipment, and civil infrastructure. I've delivered projects from a 300‑bed hospital to nationwide diagnostic center rollouts, and currently lead 24/7 facility operations at Akij Mediplex.</p>
+      </div>
+      <div class="credentials reveal">
+        <div class="cred">
+          <div class="ic">🎓</div>
+          <div><h4>M.Sc. Environmental Sciences &amp; Management</h4><p>Jahangirnagar University, GPA 3.47/4.00</p></div>
+        </div>
+        <div class="cred">
+          <div class="ic">🏗️</div>
+          <div><h4>B.Sc. Civil Engineering</h4><p>University of Asia Pacific, GPA 3.29/4.00</p></div>
+        </div>
+        <div class="cred">
+          <div class="ic">📜</div>
+          <div><h4>IEB Member — M/39792</h4><p>The Institution of Engineers, Bangladesh</p></div>
+        </div>
+        <div class="cred">
+          <div class="ic">🗣️</div>
+          <div><h4>Bilingual</h4><p>Professional fluency in English &amp; Bengali</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Experience</div>
+      <h2>A decade across construction, healthcare &amp; power</h2>
+      <p>From quantity surveying on a national power plant to leading facility operations for a private hospital group.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <span class="t-date">11/2025 — Present</span>
+        <h3>Dy. Manager, Project Ops. &amp; Maintenance</h3>
+        <div class="t-org">Akij Mediplex Limited, Dhaka</div>
+        <ul>
+          <li>Manage 24/7 facility operations including MEP systems and biomedical equipment</li>
+          <li>Lead civil, interior, exterior and MEP project coordination during build phases</li>
+          <li>Oversee preventive maintenance programs and vendor/contract management</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">04/2024 — 10/2025</span>
+        <h3>Manager, Project Management</h3>
+        <div class="t-org">AKS Khan Healthcare Limited, Dhaka</div>
+        <ul>
+          <li>Drove nationwide expansion of diagnostic centers and model pharmacy outlets</li>
+          <li>Verified BOQs and managed vendor relationships for cost efficiency</li>
+          <li>Integrated EMR/EHR systems across diagnostics and pharmacy outlets with IT teams</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">07/2018 — 03/2024</span>
+        <h3>Project Engineer — In Charge of Engineering Dept.</h3>
+        <div class="t-org">Divine Mercy Hospital Limited (300‑bed), Gazipur</div>
+        <ul>
+          <li>Ensured continuous operation of power, HVAC, water and medical gas systems</li>
+          <li>Led and mentored the engineering team on upgrades and system optimization</li>
+          <li>Enforced compliance with JCIA, DGDA and DG Health standards</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">02/2018 — 06/2018</span>
+        <h3>Project Engineer — QS &amp; Documentation</h3>
+        <div class="t-org">The Civil Engineers Limited — Matarbari Power Plant, Cox's Bazar</div>
+        <ul>
+          <li>Performed quantity takeoff and certification for the 600×2 MW power plant site</li>
+          <li>Prepared and certified RA bills, final bills and variation orders</li>
+          <li>Maintained DPR/WPR/MPR site documentation to JICA guidelines</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">01/2016 — 02/2018</span>
+        <h3>Assistant Engineer — Civil</h3>
+        <div class="t-org">The Christian Co‑Operative Credit Union Ltd., Dhaka</div>
+        <ul>
+          <li>Oversaw daily maintenance of branches, vaults and operational facilities</li>
+          <li>Planned and executed new branch setups and renovation projects</li>
+          <li>Prepared BOQs, cost estimates and AMC comparative statements</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Portfolio</div>
+      <h2>Selected handovers — 100% complete &amp; functional</h2>
+      <p>A sample of projects delivered across hospitals, diagnostic centers and power infrastructure.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <span class="tag">Hospital</span>
+        <h4>300‑Bed Hospital Building</h4>
+        <div class="proj-meta">
+          <div><b>1B + 7F</b><span>Floors</span></div>
+          <div><b>2,65,000</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Diagnostics</span>
+        <h4>Diagnostics &amp; Consultation Center, Mymensingh</h4>
+        <div class="proj-meta">
+          <div><b>10</b><span>Floors</span></div>
+          <div><b>37,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Diagnostics</span>
+        <h4>Diagnostics &amp; Consultation Center, Chakaria</h4>
+        <div class="proj-meta">
+          <div><b>7</b><span>Floors</span></div>
+          <div><b>27,900</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Diagnostics</span>
+        <h4>Diagnostics &amp; Consultation Center, Mirpur‑10</h4>
+        <div class="proj-meta">
+          <div><b>10</b><span>Floors</span></div>
+          <div><b>27,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Utility</span>
+        <h4>Substation &amp; HVAC Chiller Building</h4>
+        <div class="proj-meta">
+          <div><b>3</b><span>Floors</span></div>
+          <div><b>6,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Environmental</span>
+        <h4>Effluent &amp; Sewerage Treatment Plants</h4>
+        <div class="proj-meta">
+          <div><b>Turnkey</b><span>Delivery</span></div>
+          <div><b>8,000</b><span>Sq. ft combined</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Power</span>
+        <h4>Matarbari 600×2 MW Power Plant — Township</h4>
+        <div class="proj-meta">
+          <div><b>Multiple</b><span>Buildings</span></div>
+          <div><b>55,000</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Retail</span>
+        <h4>Retail Chain Model Pharmacy Rollout</h4>
+        <div class="proj-meta">
+          <div><b>45+</b><span>Outlets</span></div>
+          <div><b>Nationwide</b><span>Coverage</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <span class="tag">Community</span>
+        <h4>Community Center &amp; Guest House, Bandura</h4>
+        <div class="proj-meta">
+          <div><b>5</b><span>Floors</span></div>
+          <div><b>12,500</b><span>Sq. ft</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Skills</div>
+      <h2>Technical depth, organizational range</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col reveal">
+        <h3>Technical</h3>
+        <div class="pill-row">
+          <span class="pill">AutoCAD &amp; Technical Drawing</span>
+          <span class="pill">BOQ &amp; Cost Estimation</span>
+          <span class="pill">Building Codes &amp; Compliance</span>
+          <span class="pill">Project Planning &amp; Scheduling</span>
+          <span class="pill">Quantity Surveying &amp; Billing</span>
+          <span class="pill">Site Inspection &amp; QC</span>
+          <span class="pill">Specifications &amp; Tender Docs</span>
+          <span class="pill">Risk Identification &amp; Mitigation</span>
+        </div>
+      </div>
+      <div class="skill-col reveal">
+        <h3>Organizational</h3>
+        <div class="pill-row">
+          <span class="pill">Vendor &amp; Contract Management</span>
+          <span class="pill">Stakeholder Management</span>
+          <span class="pill">Multi‑disciplinary Team Leadership</span>
+          <span class="pill">Financial &amp; Compliance Oversight</span>
+          <span class="pill">Board Reporting</span>
+          <span class="pill">Conflict Resolution</span>
+          <span class="pill">Analytical &amp; Critical Thinking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-wrap">
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="section-head" style="border:none;margin:12px 0 16px;">Let's talk about your next build</h2>
+      <p style="color:var(--text-1);max-width:440px;">Whether it's a hospital fit‑out, facility operations overhaul, or a project that needs someone who can bridge civil works and MEP — I'm glad to hear about it.</p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-row">
+        <div class="ic">✉️</div>
+        <div><small>Email</small><a href="mailto:engr.arbayen@gmail.com">engr.arbayen@gmail.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">📞</div>
+        <div><small>Phone</small><a href="tel:+8801720601480">+880 1720 601 480</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">💼</div>
+        <div><small>LinkedIn</small><a href="https://linkedin.com/in/alex-ruben-bayen-96a4a7107" target="_blank" rel="noopener">alex-ruben-bayen</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">📍</div>
+        <div><small>Location</small><span>Monipuripara, Tejgaon, Dhaka‑1215, Bangladesh</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© <span id="yr"></span> Alex Ruben Bayen — Civil Engineer, IEB Member M/39792.</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); } });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
