@@ -193,17 +193,60 @@
   .cred h4{font-size:.95rem;color:#fff;margin-bottom:3px;}
   .cred p{font-size:.85rem;color:var(--text-2);margin:0;}
 
-  /* EXPERIENCE timeline */
-  .timeline{border-left:1px solid var(--line);margin-left:8px;padding-left:36px;display:flex;flex-direction:column;gap:44px;}
-  .t-item{position:relative;}
-  .t-item::before{
-    content:"";position:absolute;left:-42px;top:4px;width:12px;height:12px;border-radius:50%;
-    background:var(--bg-0);border:2px solid var(--blue);
+  /* EXPERIENCE accordion */
+  .exp-list{display:flex;flex-direction:column;gap:14px;}
+  .exp-item{
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+    overflow:hidden;transition:border-color .2s;
   }
-  .t-item .t-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--blue);letter-spacing:.06em;margin-bottom:6px;display:block;}
-  .t-item h3{font-size:1.15rem;color:#fff;}
-  .t-item .t-org{color:var(--text-1);font-size:.92rem;margin-bottom:10px;}
-  .t-item ul{color:var(--text-2);font-size:.9rem;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
+  .exp-item[open]{border-color:var(--blue);}
+  .exp-summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;
+    padding:20px 22px;user-select:none;
+  }
+  .exp-summary::-webkit-details-marker{display:none;}
+  .exp-summary::marker{content:"";}
+  .exp-logo{
+    flex:none;width:46px;height:46px;border-radius:10px;border:1px solid var(--line);
+    background:var(--blue-dim);display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.86rem;color:var(--blue);
+  }
+  .exp-heading{flex:1;min-width:0;}
+  .exp-heading .exp-role{font-size:1.02rem;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;}
+  .exp-heading .exp-org{color:var(--text-1);font-size:.88rem;margin-top:2px;}
+  .exp-heading .exp-date{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--blue);
+    letter-spacing:.05em;margin-top:4px;display:block;
+  }
+  .exp-arrow{
+    flex:none;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--text-1);
+    transition:transform .25s ease, color .2s;
+  }
+  .exp-item[open] .exp-arrow{transform:rotate(180deg);color:var(--blue);}
+  .exp-body{padding:0 22px 24px 84px;}
+  .exp-body p.exp-desc{color:var(--text-1);font-size:.9rem;margin-bottom:14px;max-width:640px;}
+  .exp-links{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .exp-links a{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--blue);
+    border:1px solid rgba(79,163,247,0.3);background:var(--blue-dim);
+    padding:5px 12px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;
+    transition:.2s;
+  }
+  .exp-links a:hover{border-color:var(--blue);background:rgba(79,163,247,0.24);}
+  .exp-body ul{color:var(--text-2);font-size:.9rem;padding-left:18px;display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+  .exp-handovers{
+    border-top:1px solid var(--line);padding-top:14px;margin-top:4px;
+    display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .exp-handovers span{
+    font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--text-2);
+    border:1px solid var(--line);border-radius:7px;padding:6px 10px;
+  }
+  .exp-handovers span b{color:var(--green);font-weight:600;}
+  @media(max-width:640px){
+    .exp-body{padding-left:22px;}
+  }
 
   /* PORTFOLIO / PROJECTS */
   #portfolio{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -242,6 +285,23 @@
   .recog-item span{font-size:.76rem;color:var(--text-2);font-family:'IBM Plex Mono',monospace;}
   @media(max-width:920px){
     .recog-grid{grid-template-columns:1fr;}
+  }
+
+  /* PUBLICATIONS */
+  #publications{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .pub-list{display:flex;flex-direction:column;gap:16px;}
+  .pub-item{
+    display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:start;
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--panel);
+    transition:.2s;
+  }
+  .pub-item:hover{border-color:var(--blue);}
+  .pub-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--blue);letter-spacing:.05em;}
+  .pub-body h4{font-size:1rem;color:#fff;margin-bottom:6px;line-height:1.4;}
+  .pub-body p{font-size:.88rem;color:var(--text-1);margin-bottom:8px;}
+  .pub-venue{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;}
+  @media(max-width:640px){
+    .pub-item{grid-template-columns:1fr;gap:8px;}
   }
 
   /* CONTACT */
@@ -309,6 +369,7 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="navbtn">Get in touch</a>
@@ -393,57 +454,151 @@
       <h2>A decade across construction, healthcare &amp; power</h2>
       <p>From quantity surveying on a national power plant to leading facility operations for a private hospital group.</p>
     </div>
-    <div class="timeline">
-      <div class="t-item reveal">
-        <span class="t-date">11/2025 — Present</span>
-        <h3>Dy. Manager, Project Ops. &amp; Maintenance</h3>
-        <div class="t-org">Akij Mediplex Limited, Dhaka</div>
-        <ul>
-          <li>Manage 24/7 facility operations including MEP systems and biomedical equipment</li>
-          <li>Lead civil, interior, exterior and MEP project coordination during build phases</li>
-          <li>Oversee preventive maintenance programs and vendor/contract management</li>
-        </ul>
-      </div>
-      <div class="t-item reveal">
-        <span class="t-date">04/2024 — 10/2025</span>
-        <h3>Manager, Project Management</h3>
-        <div class="t-org">AKS Khan Healthcare Limited, Dhaka</div>
-        <ul>
-          <li>Drove nationwide expansion of diagnostic centers and model pharmacy outlets</li>
-          <li>Verified BOQs and managed vendor relationships for cost efficiency</li>
-          <li>Integrated EMR/EHR systems across diagnostics and pharmacy outlets with IT teams</li>
-        </ul>
-      </div>
-      <div class="t-item reveal">
-        <span class="t-date">07/2018 — 03/2024</span>
-        <h3>Project Engineer — In Charge of Engineering Dept.</h3>
-        <div class="t-org">Divine Mercy Hospital Limited (300‑bed), Gazipur</div>
-        <ul>
-          <li>Ensured continuous operation of power, HVAC, water and medical gas systems</li>
-          <li>Led and mentored the engineering team on upgrades and system optimization</li>
-          <li>Enforced compliance with JCIA, DGDA and DG Health standards</li>
-        </ul>
-      </div>
-      <div class="t-item reveal">
-        <span class="t-date">02/2018 — 06/2018</span>
-        <h3>Project Engineer — QS &amp; Documentation</h3>
-        <div class="t-org">The Civil Engineers Limited — Matarbari Power Plant, Cox's Bazar</div>
-        <ul>
-          <li>Performed quantity takeoff and certification for the 600×2 MW power plant site</li>
-          <li>Prepared and certified RA bills, final bills and variation orders</li>
-          <li>Maintained DPR/WPR/MPR site documentation to JICA guidelines</li>
-        </ul>
-      </div>
-      <div class="t-item reveal">
-        <span class="t-date">01/2016 — 02/2018</span>
-        <h3>Assistant Engineer — Civil</h3>
-        <div class="t-org">The Christian Co‑Operative Credit Union Ltd., Dhaka</div>
-        <ul>
-          <li>Oversaw daily maintenance of branches, vaults and operational facilities</li>
-          <li>Planned and executed new branch setups and renovation projects</li>
-          <li>Prepared BOQs, cost estimates and AMC comparative statements</li>
-        </ul>
-      </div>
+    <div class="exp-list">
+
+      <details class="exp-item reveal" open>
+        <summary class="exp-summary">
+          <div class="exp-logo">AM</div>
+          <div class="exp-heading">
+            <div class="exp-role">Akij Mediplex — Diagnostics &amp; Hospital Chain, Dhaka</div>
+            <div class="exp-org">Role: Deputy Manager, Project Operations &amp; Maintenance</div>
+            <span class="exp-date">Nov 2025 — Present</span>
+          </div>
+          <div class="exp-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-desc">Akij Mediplex is a healthcare initiative under Akij Lifecare, a subsidiary of Akij Resource — one of Bangladesh's most diversified conglomerates. The brand entered the healthcare sector with the launch of its first diagnostic center in Mirpur-10, Dhaka, offering specialist consultations, laboratory and imaging services (MRI, CT, digital X-ray, echocardiogram, ultrasound), home sample collection, and digital reporting.</p>
+          <div class="exp-links">
+            <a href="https://akijmediplex.com" target="_blank" rel="noopener">🌐 Website</a>
+          </div>
+          <ul>
+            <li>24/7 facility operations across MEP systems and biomedical equipment</li>
+            <li>Project management and coordination for civil, interior, exterior, and MEP works</li>
+            <li>Preventive maintenance programs, vendor/contract management, and regulatory compliance</li>
+            <li>Successful handover of a 10-storey, 27,500 sq ft Diagnostics &amp; Consultation Center at Mirpur-10 (100% complete and functional)</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="exp-item reveal">
+        <summary class="exp-summary">
+          <div class="exp-logo">AK</div>
+          <div class="exp-heading">
+            <div class="exp-role">AKS Khan Healthcare — Retail Diagnostics &amp; Pharmacy Chain, Dhaka</div>
+            <div class="exp-org">Role: Manager, Project Management</div>
+            <span class="exp-date">Apr 2024 — Oct 2025</span>
+          </div>
+          <div class="exp-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-desc">AKS Khan Healthcare (AKS Pharmacy) is building one of Bangladesh's largest retail pharmacy and diagnostics networks, already serving over 200,000 patients a month through model pharmacies, diagnostic centers, and walk-in clinics nationwide.</p>
+          <div class="exp-links">
+            <a href="https://akskhanhealthcare.com" target="_blank" rel="noopener">🌐 Website</a>
+          </div>
+          <ul>
+            <li>Drove nationwide expansion of diagnostic centers and model pharmacy outlets</li>
+            <li>Verified BOQs and managed vendor relationships for cost efficiency</li>
+            <li>Integrated EMR/EHR systems across diagnostics and pharmacy outlets with IT teams</li>
+          </ul>
+          <div class="exp-handovers">
+            <span><b>5</b> diagnostic centers handed over</span>
+            <span><b>45+</b> pharmacy outlets rolled out</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="exp-item reveal">
+        <summary class="exp-summary">
+          <div class="exp-logo">DM</div>
+          <div class="exp-heading">
+            <div class="exp-role">Divine Mercy Hospital — 300-Bed Multi-Specialty Hospital, Gazipur</div>
+            <div class="exp-org">Role: Project Engineer, In Charge of Engineering Dept.</div>
+            <span class="exp-date">Jul 2018 — Mar 2024</span>
+          </div>
+          <div class="exp-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-desc">Divine Mercy Hospital is a 300-bed multi-specialty hospital in Gazipur, established by The Christian Co-Operative Credit Union Ltd. to extend the community's decades-long legacy in Bangladesh's health sector.</p>
+          <div class="exp-links">
+            <a href="https://divinemercyhospital.com" target="_blank" rel="noopener">🌐 Website</a>
+            <a href="https://www.linkedin.com/company/divine-mercy-hospital-limited" target="_blank" rel="noopener">💼 LinkedIn</a>
+          </div>
+          <ul>
+            <li>Ensured continuous operation of power, HVAC, water and medical gas systems</li>
+            <li>Led and mentored the engineering team on upgrades and system optimization</li>
+            <li>Enforced compliance with JCIA, DGDA and DG Health standards</li>
+          </ul>
+          <div class="exp-handovers">
+            <span><b>265,000</b> sf hospital building</span>
+            <span><b>ETP/STP</b> turnkey delivery</span>
+            <span><b>11</b> acres land development</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="exp-item reveal">
+        <summary class="exp-summary">
+          <div class="exp-logo">CE</div>
+          <div class="exp-heading">
+            <div class="exp-role">The Civil Engineers Limited — Matarbari Power Plant, Cox's Bazar</div>
+            <div class="exp-org">Role: Project Engineer, QS &amp; Documentation</div>
+            <span class="exp-date">Feb 2018 — Jun 2018</span>
+          </div>
+          <div class="exp-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-desc">The Civil Engineers Limited is a Dhaka-based engineering and construction firm established in 1972. I worked on the township development for the Matarbari 600×2 MW Ultra Super Critical Coal-Fired Power Plant, a national infrastructure project executed under JICA guidelines.</p>
+          <div class="exp-links">
+            <a href="https://tcel.com.bd" target="_blank" rel="noopener">🌐 Website</a>
+          </div>
+          <ul>
+            <li>Performed quantity takeoff and certification for the 600×2 MW power plant site</li>
+            <li>Prepared and certified RA bills, final bills and variation orders</li>
+            <li>Maintained DPR/WPR/MPR site documentation to JICA guidelines</li>
+          </ul>
+          <div class="exp-handovers">
+            <span><b>55,000</b> sf township development</span>
+            <span><b>4</b> buildings handed over</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="exp-item reveal">
+        <summary class="exp-summary">
+          <div class="exp-logo">CU</div>
+          <div class="exp-heading">
+            <div class="exp-role">The Christian Co-Operative Credit Union Ltd., Dhaka</div>
+            <div class="exp-org">Role: Assistant Engineer — Civil</div>
+            <span class="exp-date">Jan 2016 — Feb 2018</span>
+          </div>
+          <div class="exp-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-desc">Also known as Dhaka Credit, founded in 1955, it is Bangladesh's first and largest credit union, serving the Christian community across Dhaka, Gazipur, Narayanganj, and Munshiganj districts.</p>
+          <div class="exp-links">
+            <a href="https://www.cccul.com" target="_blank" rel="noopener">🌐 Website</a>
+          </div>
+          <ul>
+            <li>Oversaw daily maintenance of branches, vaults and operational facilities</li>
+            <li>Planned and executed new branch setups and renovation projects</li>
+            <li>Prepared BOQs, cost estimates and AMC comparative statements</li>
+          </ul>
+          <div class="exp-handovers">
+            <span><b>4</b> branch/community projects handed over</span>
+          </div>
+        </div>
+      </details>
+
     </div>
   </div>
 </section>
@@ -696,6 +851,50 @@
         <h3>Volunteering &amp; Leadership</h3>
         <div class="recog-item"><h4>Camp Leader</h4><span>Bible Student Fellowship BD · 2016–2020</span></div>
         <div class="recog-item"><h4>Youth Leader</h4><span>Yokes Bangladesh · 2018–2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Publications &amp; Writings</div>
+      <h2>Research &amp; academic contributions</h2>
+      <p>Co-authored papers and supervised studies spanning transport policy, hospital safety, and infrastructure.</p>
+    </div>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-date">02/2020</div>
+        <div class="pub-body">
+          <h4>A Typological Analysis on the Strategies of Bus Priority Lanes on City Streets: A Recommendation for Bangladesh</h4>
+          <p>Co-authored with Rahman, F., Roy, C., Tasnuva, S., Ahmed, J., and Kulsum, U.</p>
+          <span class="pub-venue">Proceedings of the 5th ICCESD 2020 · KUET, Khulna</span>
+        </div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-date">04/2022</div>
+        <div class="pub-body">
+          <h4>Assessment of Knowledge and Practices Regarding the Fire Evacuation System in Cox's Bazar District Sadar Hospital, Bangladesh</h4>
+          <p>Supervised by Dr. A. K. M. Rashidul Alam. Aimed to raise awareness among hospital workers and minimize fire-related financial risk.</p>
+          <span class="pub-venue">Jahangirnagar University</span>
+        </div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-date">11/2014</div>
+        <div class="pub-body">
+          <h4>Railway System in Bangladesh &amp; Kamalapur Railway Station</h4>
+          <p>Supervised by Dr. Rumman Mowla Chowdhury. Explored railway station technology, materials, and system operation.</p>
+          <span class="pub-venue">University of Asia Pacific</span>
+        </div>
+      </div>
+      <div class="pub-item reveal">
+        <div class="pub-date">06/2014 — 10/2014</div>
+        <div class="pub-body">
+          <h4>Waste Disposal &amp; Recycling Process in Dhaka</h4>
+          <p>Supervised by Dr. Nehreen Majed. Survey and pilot project on waste disposal and recycling in Dhaka.</p>
+          <span class="pub-venue">University of Asia Pacific</span>
+        </div>
       </div>
     </div>
   </div>
