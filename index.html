@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Ruben Bayen — Civil Engineer &amp; Healthcare Facility Operations</title>
+<title>Alex Ruben Bayen — Civil Engineer &amp; Facility Operations</title>
 <meta name="description" content="Alex Ruben Bayen — Civil Engineer specializing in healthcare infrastructure, project management, and facility operations & maintenance in Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg-0:#0A0F1C;
@@ -58,6 +58,7 @@
     gap:.6rem;
   }
   .eyebrow::before{content:"";width:22px;height:1px;background:var(--blue);display:inline-block;}
+  .hero .eyebrow::before{content:none;}
 
   .container{max-width:1180px;margin:0 auto;padding:0 32px;}
 
@@ -72,14 +73,14 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 32px;max-width:1180px;margin:0 auto;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.02rem;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.18rem;}
   .brand .mark{
     width:30px;height:30px;border:1.5px solid var(--blue);border-radius:6px;
     display:flex;align-items:center;justify-content:center;
     font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--blue);
     transform:rotate(0deg);
   }
-  .navlinks{display:flex;gap:34px;font-size:.92rem;color:var(--text-1);}
+  .navlinks{display:flex;gap:34px;font-size:1.02rem;color:var(--text-1);}
   .navlinks a{position:relative;padding:4px 0;transition:color .2s;}
   .navlinks a:hover{color:var(--text-0);}
   .navlinks a::after{
@@ -87,8 +88,10 @@
     transition:width .25s;
   }
   .navlinks a:hover::after{width:100%;}
+  .navlinks a.active{color:var(--blue);}
+  .navlinks a.active::after{width:100%;background:var(--blue);}
   .navbtn{
-    font-size:.85rem;padding:9px 18px;border:1px solid var(--line);border-radius:8px;
+    font-size:.98rem;padding:9px 18px;border:1px solid var(--line);border-radius:8px;
     color:var(--text-0);white-space:nowrap;transition:.2s;
   }
   .navbtn:hover{border-color:var(--blue);color:var(--blue);}
@@ -106,40 +109,59 @@
     position:relative;z-index:2;
     display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
   }
+  .lede-full{grid-column:1/-1;}
   .hero-tag{
     display:inline-flex;align-items:center;gap:8px;
-    font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+    font-family:'IBM Plex Mono',monospace;font-size:.92rem;letter-spacing:.1em;
     color:var(--green);border:1px solid rgba(63,214,140,0.35);background:rgba(63,214,140,0.08);
     padding:6px 12px;border-radius:99px;margin-bottom:22px;text-transform:uppercase;
   }
   .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
-  .hero h1{font-size:3.1rem;line-height:1.08;color:#fff;margin-bottom:14px;}
+  .hero h1{font-size:2.55rem;line-height:1.14;color:#fff;margin-bottom:14px;}
   .hero h1 span{color:var(--blue);}
-  .hero .role{font-size:1.25rem;color:var(--text-1);font-weight:500;margin-bottom:22px;font-family:'Space Grotesk',sans-serif;}
-  .hero p.lede{color:var(--text-1);max-width:520px;margin-bottom:34px;font-size:1rem;}
+  .hero .eyebrow{font-size:.85rem;}
+  .hero .role{font-size:.82rem;color:var(--text-1);font-weight:500;margin-bottom:22px;font-family:'Space Grotesk',sans-serif;line-height:1.5;}
+  .hero p.lede{color:var(--text-1);max-width:none;margin:16px 0 0;font-size:1.4rem;text-align:justify;text-justify:inter-word;font-family:'Poppins',sans-serif;}
   .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:30px;}
   .btn-primary{
-    background:var(--blue);color:#04121F;font-weight:600;padding:13px 26px;border-radius:9px;
+    background:var(--blue);color:#04121F;font-weight:700;padding:13px 26px;border-radius:9px;
     font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:.2s;
   }
   .btn-primary:hover{background:#6bb5f9;transform:translateY(-1px);}
   .social-row{display:flex;gap:12px;}
   .social-row a{
-    width:40px;height:40px;border:1px solid var(--line);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;color:var(--text-1);
+    width:46px;height:46px;border:none;border-radius:13px;
+    display:flex;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -6px 10px rgba(0,0,0,0.15);
     transition:.2s;
   }
-  .social-row a:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+  .social-row a::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 45%);
+    pointer-events:none;}
+  .social-row a svg{position:relative;z-index:1;}
+  .social-row a[aria-label="LinkedIn"]{background:linear-gradient(180deg,#2E8FE0,#0A66C2);}
+  .social-row a[aria-label="Email"]{background:linear-gradient(180deg,#FF6659,#D93A2B);}
+  .social-row a[aria-label="Phone"]{background:linear-gradient(180deg,#5EE8A0,#2FBE7C);color:#04121F;}
+  .social-row a[aria-label="Facebook"]{background:linear-gradient(180deg,#4A9BFF,#1877F2);}
+  .social-row a[aria-label="WhatsApp"]{background:linear-gradient(180deg,#31E37F,#128C7E);}
+  .social-row a:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 8px 16px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3);}
   .social-row svg{width:16px;height:16px;}
 
-  .stats-row{display:flex;gap:34px;margin-top:36px;flex-wrap:wrap;}
+  .stats-wrap{margin-top:36px;display:grid;
+    grid-template-columns:repeat(3, auto);
+    grid-template-areas:"s1 s2 s3" "s4 s5 ." "s6 s7 .";
+    row-gap:20px;column-gap:60px;}
+  .stats-row{display:contents;}
+  .s1{grid-area:s1;} .s2{grid-area:s2;} .s3{grid-area:s3;}
+  .s4{grid-area:s4;} .s5{grid-area:s5;}
+  .s6{grid-area:s6;} .s7{grid-area:s7;}
   .stat b{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;color:#fff;display:block;}
   .stat span{font-size:.78rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;}
 
   /* portrait */
   .portrait-wrap{position:relative;display:flex;justify-content:flex-end;align-items:center;padding-right:10px;}
   .ring{
-    width:340px;height:340px;border-radius:50%;position:relative;
+    width:440px;height:440px;border-radius:50%;position:relative;
     background:conic-gradient(from 180deg, var(--blue), var(--green), var(--amber), var(--blue));
     padding:3px;
     animation:spin 16s linear infinite;
@@ -150,7 +172,7 @@
     display:flex;align-items:center;justify-content:center;
   }
   .monogram{
-    width:308px;height:308px;border-radius:50%;
+    width:400px;height:400px;border-radius:50%;
     background:linear-gradient(160deg,#16233f,#0c1426);
     display:flex;align-items:center;justify-content:center;flex-direction:column;
     border:1px solid var(--line);
@@ -180,7 +202,8 @@
   /* ABOUT */
   #about{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-  .about-grid p{color:var(--text-1);margin-bottom:16px;}
+  .about-grid p{color:var(--text-1);margin-bottom:16px;font-size:1.4rem;text-align:justify;text-justify:inter-word;font-family:'Poppins',sans-serif;}
+  .about-grid h2{font-size:1.55rem;}
   .credentials{display:flex;flex-direction:column;gap:18px;}
   .cred{
     display:flex;gap:16px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);
@@ -190,63 +213,20 @@
     width:38px;height:38px;flex:none;border-radius:8px;background:var(--blue-dim);
     display:flex;align-items:center;justify-content:center;color:var(--blue);
   }
-  .cred h4{font-size:.95rem;color:#fff;margin-bottom:3px;}
-  .cred p{font-size:.85rem;color:var(--text-2);margin:0;}
+  .cred h4{font-size:1.3rem;color:#fff;margin-bottom:3px;}
+  .cred p{font-size:1.2rem;color:var(--text-2);margin:0;}
 
-  /* EXPERIENCE accordion */
-  .exp-list{display:flex;flex-direction:column;gap:14px;}
-  .exp-item{
-    border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
-    overflow:hidden;transition:border-color .2s;
+  /* EXPERIENCE timeline */
+  .timeline{border-left:1px solid var(--line);margin-left:8px;padding-left:36px;display:flex;flex-direction:column;gap:44px;}
+  .t-item{position:relative;}
+  .t-item::before{
+    content:"";position:absolute;left:-42px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg-0);border:2px solid var(--blue);
   }
-  .exp-item[open]{border-color:var(--blue);}
-  .exp-summary{
-    list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;
-    padding:20px 22px;user-select:none;
-  }
-  .exp-summary::-webkit-details-marker{display:none;}
-  .exp-summary::marker{content:"";}
-  .exp-logo{
-    flex:none;width:46px;height:46px;border-radius:10px;border:1px solid var(--line);
-    background:var(--blue-dim);display:flex;align-items:center;justify-content:center;
-    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.86rem;color:var(--blue);
-  }
-  .exp-heading{flex:1;min-width:0;}
-  .exp-heading .exp-role{font-size:1.02rem;color:#fff;font-weight:600;font-family:'Space Grotesk',sans-serif;}
-  .exp-heading .exp-org{color:var(--text-1);font-size:.88rem;margin-top:2px;}
-  .exp-heading .exp-date{
-    font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--blue);
-    letter-spacing:.05em;margin-top:4px;display:block;
-  }
-  .exp-arrow{
-    flex:none;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;color:var(--text-1);
-    transition:transform .25s ease, color .2s;
-  }
-  .exp-item[open] .exp-arrow{transform:rotate(180deg);color:var(--blue);}
-  .exp-body{padding:0 22px 24px 84px;}
-  .exp-body p.exp-desc{color:var(--text-1);font-size:.9rem;margin-bottom:14px;max-width:640px;}
-  .exp-links{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
-  .exp-links a{
-    font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--blue);
-    border:1px solid rgba(79,163,247,0.3);background:var(--blue-dim);
-    padding:5px 12px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;
-    transition:.2s;
-  }
-  .exp-links a:hover{border-color:var(--blue);background:rgba(79,163,247,0.24);}
-  .exp-body ul{color:var(--text-2);font-size:.9rem;padding-left:18px;display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
-  .exp-handovers{
-    border-top:1px solid var(--line);padding-top:14px;margin-top:4px;
-    display:flex;flex-wrap:wrap;gap:8px;
-  }
-  .exp-handovers span{
-    font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--text-2);
-    border:1px solid var(--line);border-radius:7px;padding:6px 10px;
-  }
-  .exp-handovers span b{color:var(--green);font-weight:600;}
-  @media(max-width:640px){
-    .exp-body{padding-left:22px;}
-  }
+  .t-item .t-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--blue);letter-spacing:.06em;margin-bottom:6px;display:block;}
+  .t-item h3{font-size:1.15rem;color:#fff;}
+  .t-item .t-org{color:var(--text-1);font-size:.92rem;margin-bottom:10px;}
+  .t-item ul{color:var(--text-2);font-size:.9rem;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
 
   /* PORTFOLIO / PROJECTS */
   #portfolio{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -287,23 +267,6 @@
     .recog-grid{grid-template-columns:1fr;}
   }
 
-  /* PUBLICATIONS */
-  #publications{background:var(--bg-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .pub-list{display:flex;flex-direction:column;gap:16px;}
-  .pub-item{
-    display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:start;
-    border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--panel);
-    transition:.2s;
-  }
-  .pub-item:hover{border-color:var(--blue);}
-  .pub-date{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--blue);letter-spacing:.05em;}
-  .pub-body h4{font-size:1rem;color:#fff;margin-bottom:6px;line-height:1.4;}
-  .pub-body p{font-size:.88rem;color:var(--text-1);margin-bottom:8px;}
-  .pub-venue{font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;}
-  @media(max-width:640px){
-    .pub-item{grid-template-columns:1fr;gap:8px;}
-  }
-
   /* CONTACT */
   #contact{background:var(--bg-1);border-top:1px solid var(--line);}
   .contact-wrap{
@@ -334,6 +297,7 @@
     .ring{width:220px;height:220px;}
     .monogram{width:198px;height:198px;}
     .monogram b{font-size:2.2rem;}
+    .stats-wrap{grid-template-columns:1fr 1fr;grid-template-areas:"s1 s2" "s3 s4" "s5 s6" "s7 s7";row-gap:18px;column-gap:24px;}
     .about-grid, .skills-grid, .contact-wrap{grid-template-columns:1fr;}
     .proj-grid{grid-template-columns:1fr 1fr;}
     .navlinks{
@@ -369,7 +333,8 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#recognition">Recognition</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="navbtn">Get in touch</a>
@@ -381,11 +346,10 @@
   <div class="grid-bg"></div>
   <div class="container hero-inner">
     <div class="reveal show">
-      <div class="hero-tag"><span class="dot"></span>Open to new HEALTHCARE infrastructure & FM projects</div>
+      <div class="hero-tag"><span class="dot"></span>Open to new infrastructure & FM projects</div>
       <div class="eyebrow">Dhaka, Bangladesh</div>
-      <h1>Alex Ruben Bayen<br><span>Civil Engineer</span> &amp; Healthcare Facility Ops Lead</h1>
-      <div class="role">Dy. Manager — Project Operations &amp; Maintenance, Akij Mediplex</div>
-      <p class="lede">A decade spent keeping hospitals, diagnostic centers, and critical infrastructure running — from Matarbari's power plant site to 300‑bed hospital handovers. I plan the build, then keep it operating.</p>
+      <h1>Alex Ruben Bayen<br><span>Civil Engineer</span> &amp;<br>Healthcare Facility Ops Lead</h1>
+      <div class="role">Deputy Manager, Project Operations &amp; Maintenance<br>Akij Mediplex Diagnostics &amp; Consultation Center,<br>Akij Resource Limited</div>
       <div class="hero-ctas">
         <a class="btn-primary" href="Alex_Ruben_Bayen_CV.pdf" download>↓ Download CV</a>
         <div class="social-row">
@@ -398,21 +362,37 @@
           <a href="tel:+8801720601480" aria-label="Phone">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
           </a>
+          <a href="https://www.facebook.com/share/14jMEcPtgmN/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+          </a>
+          <a href="https://wa.me/8801720601480" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.13-1.35A10 10 0 1 0 12 2zm0 18.1a8.08 8.08 0 0 1-4.1-1.12l-.29-.17-3.04.8.81-2.96-.19-.3A8.1 8.1 0 1 1 12 20.1zm4.4-6.07c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="stats-row">
-        <div class="stat"><b>10+</b><span>Years experience</span></div>
-        <div class="stat"><b>23+</b><span>Projects delivered</span></div>
-        <div class="stat"><b>300+</b><span>Bed hospital led</span></div>
-        <div class="stat"><b>IEB</b><span>Member M/39792</span></div>
+      <div class="stats-wrap">
+        <div class="stats-row">
+          <div class="stat s1"><b>10+</b><span>Years experience</span></div>
+          <div class="stat s2"><b>23+</b><span>Projects delivered</span></div>
+          <div class="stat s3"><b>IEB</b><span>Member M/39792</span></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat s4"><b>300</b><span>Bed Hospital Complex Project Led</span></div>
+          <div class="stat s5"><b>45+</b><span>Retail Model Chain Pharmacy Project Led</span></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat s6"><b>7+</b><span>Diagnostics &amp; Consultation Center Project Led</span></div>
+          <div class="stat s7"><b>1200 MW</b><span>USC Mega Power Plant Township Project Led</span></div>
+        </div>
       </div>
     </div>
     <div class="portrait-wrap reveal show">
       <div class="ring"><div class="ring-inner">
         <div class="monogram"><img src="portrait.webp" alt="Alex Ruben Bayen"></div>
       </div></div>
-      <div class="badge">📍 <b>Tejgaon</b>, Dhaka</div>
+      <div class="badge">📍 <b>Tejgaon</b>, Dhaka-1215</div>
     </div>
+    <p class="lede lede-full">A decade spent keeping hospitals, diagnostic centers, and critical infrastructure running — from Matarbari's power plant site to 300‑bed hospital handovers. I plan the build, then keep it operating.</p>
   </div>
 </section>
 
@@ -428,11 +408,11 @@
       <div class="credentials reveal">
         <div class="cred">
           <div class="ic">🎓</div>
-          <div><h4>M.Sc. Environmental Sciences &amp; Management</h4><p>Jahangirnagar University</p></div>
+          <div><h4>M.Sc. Environmental Sciences &amp; Management</h4><p>Jahangirnagar University, GPA 3.47/4.00</p></div>
         </div>
         <div class="cred">
           <div class="ic">🏗️</div>
-          <div><h4>B.Sc. Civil Engineering</h4><p>University of Asia Pacific</p></div>
+          <div><h4>B.Sc. Civil Engineering</h4><p>University of Asia Pacific, GPA 3.29/4.00</p></div>
         </div>
         <div class="cred">
           <div class="ic">📜</div>
@@ -451,156 +431,60 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow">Experience</div>
-      <h2>A decade across construction, healthcare &amp; mega power plant project</h2>
-      <p>From quantity surveying on a national power plant to leading healthcare facility operations for private hospital, diagnostic &amp; consultation center.</p>
+      <h2>A decade across construction, healthcare &amp; power</h2>
+      <p>From quantity surveying on a national power plant to leading facility operations for a private hospital group.</p>
     </div>
-    <div class="exp-list">
-
-      <details class="exp-item reveal">
-        <summary class="exp-summary">
-          <div class="exp-logo">AM</div>
-          <div class="exp-heading">
-            <div class="exp-role">Akij Mediplex — Diagnostics &amp; Hospital Chain, Dhaka</div>
-            <div class="exp-org">Role: Deputy Manager, Project Operations &amp; Maintenance</div>
-            <span class="exp-date">Nov 2025 — Present</span>
-          </div>
-          <div class="exp-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-desc">Akij Mediplex is a healthcare initiative under Akij Lifecare, a subsidiary of Akij Resource — one of Bangladesh's most diversified conglomerates. The brand entered the healthcare sector with the launch of its first diagnostic center in Mirpur-10, Dhaka, offering specialist consultations, laboratory and imaging services (MRI, CT, digital X-ray, echocardiogram, ultrasound), home sample collection, and digital reporting.</p>
-          <div class="exp-links">
-            <a href="https://akijmediplex.com" target="_blank" rel="noopener">🌐 Website</a>
-            <a href="https://www.linkedin.com/company/akij-mediplex" target="_blank" rel="noopener">💼 LinkedIn</a>
-          </div>
-          <ul>
-            <li>24/7 facility operations across MEP systems and biomedical equipment setup layout</li>
-            <li>Project management and coordination for civil, interior, exterior, and MEP works</li>
-            <li>Preventive maintenance programs, vendor/contract management, and regulatory compliance</li>
-            <li>Successful handover of a 10-storey, 27,500 sq ft Diagnostics &amp; Consultation Center at Mirpur-10 (100% complete and functional)</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="exp-item reveal">
-        <summary class="exp-summary">
-          <div class="exp-logo">AK</div>
-          <div class="exp-heading">
-            <div class="exp-role">AKS Khan Healthcare — Retail Diagnostics &amp; Pharmacy Chain, Dhaka</div>
-            <div class="exp-org">Role: Manager, Project Management</div>
-            <span class="exp-date">Apr 2024 — Oct 2025</span>
-          </div>
-          <div class="exp-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-desc">AKS Khan Healthcare (AKS Pharmacy) is building one of Bangladesh's largest retail pharmacy and diagnostics networks, already serving over 200,000 patients a month through model pharmacies, diagnostic centers, and walk-in clinics nationwide.</p>
-          <div class="exp-links">
-            <a href="https://akskhanhealthcare.com" target="_blank" rel="noopener">🌐 Website</a>
-            <a href="https://www.linkedin.com/company/akskhanhealthcare" target="_blank" rel="noopener">💼 LinkedIn</a>
-          </div>
-          <ul>
-            <li>Drove nationwide expansion of diagnostic centers and model pharmacy outlets</li>
-            <li>Verified BOQs and managed vendor relationships for cost efficiency</li>
-            <li>Integrated EMR/EHR systems across diagnostics and pharmacy outlets with IT teams</li>
-          </ul>
-          <div class="exp-handovers">
-            <span><b>5</b> diagnostic centers handed over</span>
-            <span><b>45+</b> pharmacy outlets rolled out</span>
-          </div>
-        </div>
-      </details>
-
-      <details class="exp-item reveal">
-        <summary class="exp-summary">
-          <div class="exp-logo">DM</div>
-          <div class="exp-heading">
-            <div class="exp-role">Divine Mercy Hospital — 300-Bed Multi-Specialty Hospital, Gazipur</div>
-            <div class="exp-org">Role: Project Engineer, In Charge of Engineering Dept.</div>
-            <span class="exp-date">Jul 2018 — Mar 2024</span>
-          </div>
-          <div class="exp-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-desc">Divine Mercy Hospital is a 300-bed multi-specialty hospital in Gazipur, established by The Christian Co-Operative Credit Union Ltd. to extend the community's decades-long legacy in Bangladesh's health sector.</p>
-          <div class="exp-links">
-            <a href="https://divinemercyhospital.com" target="_blank" rel="noopener">🌐 Website</a>
-            <a href="https://www.linkedin.com/company/divine-mercy-hospital-limited" target="_blank" rel="noopener">💼 LinkedIn</a>
-          </div>
-          <ul>
-            <li>Ensured continuous operation of power, HVAC, water and medical gas systems</li>
-            <li>Led and mentored the engineering team on upgrades and system optimization</li>
-            <li>Enforced compliance with JCIA, DGDA and DG Health standards</li>
-          </ul>
-          <div class="exp-handovers">
-            <span><b>265,000</b> sf hospital building</span>
-            <span><b>ETP/STP</b> turnkey delivery</span>
-            <span><b>11</b> acres land development</span>
-          </div>
-        </div>
-      </details>
-
-      <details class="exp-item reveal">
-        <summary class="exp-summary">
-          <div class="exp-logo">CE</div>
-          <div class="exp-heading">
-            <div class="exp-role">The Civil Engineers Limited — Matarbari Power Plant, Cox's Bazar</div>
-            <div class="exp-org">Role: Project Engineer, QS &amp; Documentation</div>
-            <span class="exp-date">Feb 2018 — Jun 2018</span>
-          </div>
-          <div class="exp-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-desc">The Civil Engineers Limited is a Dhaka-based engineering and construction firm established in 1972. I worked on the township development for the Matarbari 600×2 MW Ultra Super Critical Coal-Fired Power Plant, a national infrastructure project executed under JICA guidelines.</p>
-          <div class="exp-links">
-            <a href="https://tcel.com.bd" target="_blank" rel="noopener">🌐 Website</a>
-          </div>
-          <ul>
-            <li>Performed quantity takeoff and certification for the 600×2 MW power plant site</li>
-            <li>Prepared and certified RA bills, final bills and variation orders</li>
-            <li>Maintained DPR/WPR/MPR site documentation to JICA guidelines</li>
-          </ul>
-          <div class="exp-handovers">
-            <span><b>55,000</b> sf township development</span>
-            <span><b>4</b> buildings handed over</span>
-          </div>
-        </div>
-      </details>
-
-      <details class="exp-item reveal">
-        <summary class="exp-summary">
-          <div class="exp-logo">CU</div>
-          <div class="exp-heading">
-            <div class="exp-role">The Christian Co-Operative Credit Union Ltd., Dhaka</div>
-            <div class="exp-org">Role: Assistant Engineer — Civil</div>
-            <span class="exp-date">Jan 2016 — Feb 2018</span>
-          </div>
-          <div class="exp-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-desc">Also known as Dhaka Credit, founded in 1955, it is Bangladesh's first and largest credit union, serving the Christian community across Dhaka, Gazipur, Narayanganj, and Munshiganj districts.</p>
-          <div class="exp-links">
-            <a href="https://www.cccul.com" target="_blank" rel="noopener">🌐 Website</a>
-          </div>
-          <ul>
-            <li>Oversaw daily maintenance of branches, vaults and operational facilities</li>
-            <li>Planned and executed new branch setups and renovation projects</li>
-            <li>Prepared BOQs, cost estimates and AMC comparative statements</li>
-          </ul>
-          <div class="exp-handovers">
-            <span><b>4</b> branch/community projects handed over</span>
-          </div>
-        </div>
-      </details>
-
+    <div class="timeline">
+      <div class="t-item reveal">
+        <span class="t-date">11/2025 — Present</span>
+        <h3>Dy. Manager, Project Ops. &amp; Maintenance</h3>
+        <div class="t-org">Akij Mediplex Limited, Dhaka</div>
+        <ul>
+          <li>Manage 24/7 facility operations including MEP systems and biomedical equipment</li>
+          <li>Lead civil, interior, exterior and MEP project coordination during build phases</li>
+          <li>Oversee preventive maintenance programs and vendor/contract management</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">04/2024 — 10/2025</span>
+        <h3>Manager, Project Management</h3>
+        <div class="t-org">AKS Khan Healthcare Limited, Dhaka</div>
+        <ul>
+          <li>Drove nationwide expansion of diagnostic centers and model pharmacy outlets</li>
+          <li>Verified BOQs and managed vendor relationships for cost efficiency</li>
+          <li>Integrated EMR/EHR systems across diagnostics and pharmacy outlets with IT teams</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">07/2018 — 03/2024</span>
+        <h3>Project Engineer — In Charge of Engineering Dept.</h3>
+        <div class="t-org">Divine Mercy Hospital Limited (300‑bed), Gazipur</div>
+        <ul>
+          <li>Ensured continuous operation of power, HVAC, water and medical gas systems</li>
+          <li>Led and mentored the engineering team on upgrades and system optimization</li>
+          <li>Enforced compliance with JCIA, DGDA and DG Health standards</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">02/2018 — 06/2018</span>
+        <h3>Project Engineer — QS &amp; Documentation</h3>
+        <div class="t-org">The Civil Engineers Limited — Matarbari Power Plant, Cox's Bazar</div>
+        <ul>
+          <li>Performed quantity takeoff and certification for the 600×2 MW power plant site</li>
+          <li>Prepared and certified RA bills, final bills and variation orders</li>
+          <li>Maintained DPR/WPR/MPR site documentation to JICA guidelines</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">01/2016 — 02/2018</span>
+        <h3>Assistant Engineer — Civil</h3>
+        <div class="t-org">The Christian Co‑Operative Credit Union Ltd., Dhaka</div>
+        <ul>
+          <li>Oversaw daily maintenance of branches, vaults and operational facilities</li>
+          <li>Planned and executed new branch setups and renovation projects</li>
+          <li>Prepared BOQs, cost estimates and AMC comparative statements</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -858,50 +742,6 @@
   </div>
 </section>
 
-<section id="publications">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Publications &amp; Writings</div>
-      <h2>Research &amp; academic contributions</h2>
-      <p>Co-authored papers and supervised studies spanning transport policy, hospital safety, and infrastructure.</p>
-    </div>
-    <div class="pub-list">
-      <div class="pub-item reveal">
-        <div class="pub-date">02/2020</div>
-        <div class="pub-body">
-          <h4>A Typological Analysis on the Strategies of Bus Priority Lanes on City Streets: A Recommendation for Bangladesh</h4>
-          <p>Co-authored with Rahman, F., Roy, C., Tasnuva, S., Ahmed, J., and Kulsum, U.</p>
-          <span class="pub-venue">Proceedings of the 5th ICCESD 2020 · KUET, Khulna</span>
-        </div>
-      </div>
-      <div class="pub-item reveal">
-        <div class="pub-date">04/2022</div>
-        <div class="pub-body">
-          <h4>Assessment of Knowledge and Practices Regarding the Fire Evacuation System in Cox's Bazar District Sadar Hospital, Bangladesh</h4>
-          <p>Supervised by Dr. A. K. M. Rashidul Alam. Aimed to raise awareness among hospital workers and minimize fire-related financial risk.</p>
-          <span class="pub-venue">Jahangirnagar University</span>
-        </div>
-      </div>
-      <div class="pub-item reveal">
-        <div class="pub-date">11/2014</div>
-        <div class="pub-body">
-          <h4>Railway System in Bangladesh &amp; Kamalapur Railway Station</h4>
-          <p>Supervised by Dr. Rumman Mowla Chowdhury. Explored railway station technology, materials, and system operation.</p>
-          <span class="pub-venue">University of Asia Pacific</span>
-        </div>
-      </div>
-      <div class="pub-item reveal">
-        <div class="pub-date">06/2014 — 10/2014</div>
-        <div class="pub-body">
-          <h4>Waste Disposal &amp; Recycling Process in Dhaka</h4>
-          <p>Supervised by Dr. Nehreen Majed. Survey and pilot project on waste disposal and recycling in Dhaka.</p>
-          <span class="pub-venue">University of Asia Pacific</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="contact">
   <div class="container contact-wrap">
     <div class="reveal">
@@ -955,6 +795,21 @@
       burgerBtn.setAttribute('aria-expanded', 'false');
     });
   });
+
+  const navAnchors = document.querySelectorAll('.navlinks a[href^="#"]');
+  const spySections = Array.from(navAnchors)
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  const spyObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        navAnchors.forEach(a=>a.classList.remove('active'));
+        const match = document.querySelector(`.navlinks a[href="#${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px', threshold:0});
+  spySections.forEach(sec => spyObserver.observe(sec));
 </script>
 </body>
 </html>
